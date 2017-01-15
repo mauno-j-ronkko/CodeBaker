@@ -52,4 +52,4 @@ NOTES:
 5) label "@filename" in definition redirects the input from, or output to, a file with given filename
 6) "# : {separator:{;} delimiter:{,}}" defines a data parser with ";" as line separator and "," as field delimiter
 7) "#label : <value>" applies data parser to value with current data separator and delimiter
-   resulting with definitions "label : { ... }  label : { ... } ..."
+   resulting with definitions "label : { a1:{...} a2:{...} ... }  label : { a1:{...} a2:{...} ... } ..."
