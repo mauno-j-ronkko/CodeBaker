@@ -1,0 +1,29 @@
+. : { 
+	This is an example CodeBaker file.
+	It produces an immutable Java class capturing a Person object with a name, address, and age.
+	The resulting Java class is written on the console.
+}
+	
+ImmutableClass : {
+public class «CLASS||‹name›»
+{
+«ATTRIBUTE||	private ‹type› ‹name›;
+»
+	public «CLASS||‹name›»(«ATTRIBUTE|, |‹type› ‹name›»)
+	{ 
+«ATTRIBUTE||		this.‹name›=‹name›;
+»	}	
+«ATTRIBUTE||
+	public ‹type› get‹Name›()
+	{ return ‹name›; }
+»}
+}
+
+Person : {
+	CLASS : {name:Person}
+	ATTRIBUTE : {name:name type:String}
+	ATTRIBUTE : {name:address type:String}
+	ATTRIBUTE : {name:age type:int}
+}
+
+@ : [ImmutableClass [Person]]

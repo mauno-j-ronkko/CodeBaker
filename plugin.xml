@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Baker Category"
+            id="CodeBaker">
+      </category>
+      <view
+            name="Baker View"
+            icon="icons/sample.gif"
+            category="CodeBaker"
+            class="fi.codebaker.views.BakerView"
+            id="fi.codebaker.views.BakerView">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="fi.codebaker.views.BakerView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
+      <extension point="org.eclipse.ui.commands">
+        <category
+              id="fi.codebaker.command.BakerCategory"
+              name="Baker Command Category">
+        </category>
+     	<command
+           id="fi.codebaker.command.chefBake"
+           categoryId="fi.codebaker.command.BakerCategory"
+           name="Baker Chef Bake"/>
+	</extension>
+
+	<extension point="org.eclipse.ui.handlers">
+     	<handler
+        	class="fi.codebaker.ChefBakeHandler"
+        	commandId="fi.codebaker.command.chefBake">
+     	</handler>
+	</extension>
+	 
+	<extension point="org.eclipse.ui.bindings">
+		<key
+           commandId="fi.codebaker.command.chefBake"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+           sequence="M3+B"/>
+    </extension>
+	
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:popup:org.eclipse.ui.popup.any?before=additions">
+         <command
+              commandId="fi.codebaker.command.chefBake"
+              label="Bake">
+         </command>
+      </menuContribution>
+	</extension>
+   
+   <!--extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension-->
+
+</plugin>
